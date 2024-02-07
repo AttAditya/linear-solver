@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Equation Solver</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">
+            Linear Equation Solver
+        </h1>
+
+        <div class="main">
+            <div class="controls">
+                <h2>
+                    Controls
+                </h2>
+
+                <div class="variable-count">
+                    <label for="variable-count">Number of Variables:</label>
+                    <button class="decrement" onclick="document.getElementById('variable-count').value = Math.max(2, document.getElementById('variable-count').value - 1);">
+                        -
+                    </button>
+                    <input type="number" id="variable-count" min="2" value="2">
+                    <button class="increment" onclick="document.getElementById('variable-count').value = Math.max(2, document.getElementById('variable-count').value * 1 + 1);">
+                        +
+                    </button>
+                </div>
+
+                <div class="actions">
+                    <button onclick="document.getElementById('equations-template').innerHTML = generateEquationsTemplate(document.getElementById('variable-count').value);">
+                        Generate Equations Template
+                    </button>
+                    
+                    <button onclick="solveEquations();">
+                        Solve
+                    </button>
+                </div>
+            </div>
+            
+            <div class="equations">
+                <h2>
+                    Equations
+                </h2>
+                <div id="equations-template"></div>
+            </div>
+            
+            <div class="solutions">
+                <h2>Solutions</h2>
+                <div id="solutions"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
